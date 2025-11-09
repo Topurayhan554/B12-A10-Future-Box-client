@@ -5,6 +5,7 @@ import dog1 from "../../assets/273eae196685e4c7218ad47f291b9ab7.jpg";
 import { useLoaderData } from "react-router";
 import PetAndSuppliesCard from "../../PetAndSuppliesCard/PetAndSuppliesCard";
 import HeroSection from "./HeroCarusl";
+import PetHeros from "./PetHeros";
 
 const HomePage = () => {
   const data = useLoaderData();
@@ -169,54 +170,7 @@ const HomePage = () => {
       </section>
 
       {/* Meet Our Pet Heroes */}
-      <section className="py-20 px-6 bg-white text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-orange-600 mb-10">
-          🐕 Meet Our Pet Heroes
-        </h2>
-        <p className="max-w-3xl mx-auto text-gray-700 text-lg leading-relaxed mb-12">
-          Celebrating the amazing adopters and caregivers who have made a
-          difference in the lives of our furry friends.
-        </p>
-        <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {[
-            {
-              name: "Ayesha Rahman",
-              role: "Dog Adopter",
-              img: "https://i.pinimg.com/736x/a0/3f/a9/a03fa990fa61671c6fb11f78318ed033.jpg",
-            },
-            {
-              name: "Tanvir Hossain",
-              role: "Cat Caregiver",
-              img: "https://i.pinimg.com/736x/6e/16/a5/6e16a5f2b4842e3fef4b446427567f7e.jpg",
-            },
-            {
-              name: "Mithila Sultana",
-              role: "Pet Volunteer",
-              img: "https://i.pinimg.com/1200x/26/f5/7c/26f57cea68363c1fa9e4acbe1d372851.jpg",
-            },
-            {
-              name: "Riyad Karim",
-              role: "Adoption Advocate",
-              img: "https://i.pinimg.com/736x/e9/d7/fd/e9d7fdcd51b37b6397d1b523bedf50f0.jpg",
-            },
-          ].map((hero, i) => (
-            <div
-              key={i}
-              className="bg-orange-50 p-5 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition"
-            >
-              <img
-                src={hero.img}
-                alt={hero.name}
-                className="w-32 h-32 object-cover rounded-full mx-auto mb-4"
-              />
-              <h3 className="text-lg font-semibold text-gray-900">
-                {hero.name}
-              </h3>
-              <p className="text-orange-600">{hero.role}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <PetHeros />
     </div>
   );
 };

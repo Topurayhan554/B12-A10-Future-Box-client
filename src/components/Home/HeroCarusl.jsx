@@ -10,8 +10,25 @@ import "swiper/css/pagination";
 import dog1 from "../../assets/273eae196685e4c7218ad47f291b9ab7.jpg";
 import dog2 from "../../assets/30fb6f5af95f24723789c444c9adc258.jpg";
 import dog3 from "../../assets/90bafbb4368eb094cf2d33ead399d83b.jpg";
+import { Link } from "react-router";
 
 const HeroSection = () => {
+  // Slide data (image + tagline)
+  const slides = [
+    {
+      image: dog1,
+      tagline: "Find Your Furry Friend Today!",
+    },
+    {
+      image: dog2,
+      tagline: "Adopt, Don’t Shop — Give a Pet a Home.",
+    },
+    {
+      image: dog3,
+      tagline: "Because Every Pet Deserves Love and Care.",
+    },
+  ];
+
   return (
     <section className="relative w-full h-[90vh] overflow-hidden">
       {/* Swiper Background */}
@@ -23,25 +40,27 @@ const HeroSection = () => {
         loop={true}
         className="w-full h-full"
       >
-        {[dog1, dog2, dog3].map((img, index) => (
+        {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
               className="w-full h-full bg-cover bg-center relative"
               style={{
-                backgroundImage: `url(${img})`,
+                backgroundImage: `url(${slide.image})`,
               }}
             >
               <div className="absolute inset-0 bg-black/40"></div>
+
+              {/* Animated Text */}
               <div className="absolute inset-0 flex items-center justify-center text-center text-white px-6">
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: "easeOut" }}
                 >
-                  <h1 className="text-4xl md:text-5xl font-bold leading-snug">
-                    Crafting Pure Joy for{" "}
-                    <span className="text-orange-400">Your Furry Friends</span>
+                  <h1 className="text-4xl md:text-5xl font-bold leading-snug drop-shadow-lg">
+                    {slide.tagline}
                   </h1>
+
                   <p className="mt-5 text-gray-200 max-w-md mx-auto text-lg">
                     Welcome to{" "}
                     <span className="font-semibold text-orange-400">
@@ -50,14 +69,19 @@ const HeroSection = () => {
                     , where we bring happiness and comfort to your beloved pets
                     with premium care and heartfelt craftsmanship.
                   </p>
-
                   <div className="mt-8 flex justify-center gap-4 flex-wrap">
-                    <button className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition">
+                    <Link
+                      to="/pet-supplies"
+                      className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition"
+                    >
                       Shop Now
-                    </button>
-                    <button className="flex items-center gap-2 text-orange-400 font-medium hover:underline">
+                    </Link>
+                    <Link
+                      to={"https://www.youtube.com/shorts/Mf7lTe55LY4"}
+                      className="flex items-center gap-2 text-orange-400 font-medium hover:underline"
+                    >
                       <FaPlayCircle className="text-2xl" /> Watch Video
-                    </button>
+                    </Link>
                   </div>
                 </motion.div>
               </div>
