@@ -4,6 +4,9 @@ import MainLayout from "../layouts/MainLayout";
 import PetAndSupplies from "../pages/PetAndSupplies/PetAndSupplies";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import AddList from "../pages/AddList/AddList";
+import MyList from "../pages/MyList/MyList";
+import MyOrders from "../pages/MyOrders/MyOrders";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,18 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/add-list",
+        element: <AddList />,
+      },
+      {
+        path: "/my-list",
+        element: <MyList />,
+      },
+      {
+        path: "/my-orders",
+        element: <MyOrders />,
       },
     ],
   },
