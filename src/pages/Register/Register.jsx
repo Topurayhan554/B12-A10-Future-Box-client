@@ -21,6 +21,15 @@ const Register = () => {
     const photoURL = e.target.photo?.value;
     const password = e.target.password?.value;
 
+    // ✅ Password Validation
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      toast.error(
+        "Password must have at least 1 uppercase letter, 1 lowercase letter, and be 6+ characters long."
+      );
+      return;
+    }
+
     // console.log({ displayName, email, photoURL, password });
 
     createUserFunc(email, password)

@@ -8,6 +8,7 @@ import AddList from "../pages/AddList/AddList";
 import MyList from "../pages/MyList/MyList";
 import MyOrders from "../pages/MyOrders/MyOrders";
 import PrivateRoute from "./PrivateRouter";
+import SeeDetails from "../pages/SeeDetails/SeeDetails";
 
 const router = createBrowserRouter([
   {
@@ -34,9 +35,18 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+
+      {
+        path: "/see-details/:id",
+        element: <SeeDetails />,
+      },
       {
         path: "/add-list",
-        element: <AddList />,
+        element: (
+          <PrivateRoute>
+            <AddList />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-list",

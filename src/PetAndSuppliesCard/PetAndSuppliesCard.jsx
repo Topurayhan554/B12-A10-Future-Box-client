@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const PetAndSuppliesCard = ({ item }) => {
   return (
@@ -23,9 +24,11 @@ const PetAndSuppliesCard = ({ item }) => {
           </p>
 
           {/* Button */}
-          <button className="mt-4 w-full bg-orange-600 text-white font-semibold py-2 rounded-xl hover:bg-orange-700 hover:scale-105 transition-all duration-300">
-            See Details
-          </button>
+          <Link to={`/see-details/${item._id}`}>
+            <button className="mt-4 w-full bg-orange-600 text-white font-semibold py-2 rounded-xl hover:bg-orange-700 hover:scale-105 transition-all duration-300">
+              See Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>

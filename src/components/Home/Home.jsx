@@ -2,7 +2,7 @@ import React from "react";
 import { FaPlayCircle } from "react-icons/fa";
 
 import dog1 from "../../assets/273eae196685e4c7218ad47f291b9ab7.jpg";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import PetAndSuppliesCard from "../../PetAndSuppliesCard/PetAndSuppliesCard";
 import HeroSection from "./HeroCarusl";
 import PetHeros from "./PetHeros";
@@ -125,6 +125,17 @@ const HomePage = () => {
                   item={item}
                 ></PetAndSuppliesCard>
               ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center w-full my-12">
+              <hr className="flex-grow border-t border-orange-200 w-full sm:w-auto" />
+              <Link
+                to={"/pet-supplies"}
+                className="mx-4 my-4 sm:my-0 px-6 py-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+              >
+                See All
+              </Link>
+              <hr className="flex-grow border-t border-orange-200 w-full sm:w-auto" />
             </div>
           </div>
         }
