@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
   const { setUser, signInFunc, signInGoogle } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -29,6 +32,7 @@ const Login = () => {
         }
 
         setUser(res.user);
+        navigate(location.state || "/");
         toast.success("SignIn successfully");
       })
       .catch((e) => {
@@ -41,6 +45,7 @@ const Login = () => {
     signInGoogle()
       .then((res) => {
         setUser(res.user);
+        navigate(location.state || "/");
         toast.success("SignIn successfully");
       })
       .catch((e) => {

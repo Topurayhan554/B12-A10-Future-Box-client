@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import { toast } from "react-toastify";
 
 const Register = () => {
+  const navigate = useNavigate();
   const {
     setUser,
     createUserFunc,
@@ -39,6 +40,7 @@ const Register = () => {
             emailVerificationFunc().then((res) => {
               logOutFunc()
                 .then(() => {
+                  navigate("/");
                   toast.success(
                     "Signup successful. Check your email to validate your account."
                   );

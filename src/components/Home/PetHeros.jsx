@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 
 const PetHeros = () => {
   const [heroes, setHeroes] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:3000/pet-heroes")
@@ -13,6 +14,7 @@ const PetHeros = () => {
       .then((data) => {
         console.log(data); // check if data comes correctly
         setHeroes(data);
+        setLoading(false);
       })
       .catch((err) => console.error("Error fetching heroes:", err));
   }, []);
@@ -38,7 +40,7 @@ const PetHeros = () => {
         className="max-w-6xl mx-auto"
       >
         {heroes.map((hero) => (
-          <SwiperSlide>
+          <SwiperSlide key={hero._id}>
             <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 mx-4">
               <img
                 src={hero.image}

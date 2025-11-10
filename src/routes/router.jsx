@@ -38,7 +38,11 @@ const router = createBrowserRouter([
 
       {
         path: "/see-details/:id",
-        element: <SeeDetails />,
+        element: (
+          <PrivateRoute>
+            <SeeDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add-list",
@@ -50,11 +54,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-list",
-        element: <MyList />,
+        element: (
+          <PrivateRoute>
+            <MyList />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-orders",
-        element: <MyOrders />,
+        element: (
+          <PrivateRoute>
+            <MyOrders />
+          </PrivateRoute>
+        ),
       },
     ],
   },

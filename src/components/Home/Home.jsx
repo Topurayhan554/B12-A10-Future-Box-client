@@ -180,7 +180,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Meet Our Pet Heroes */}
+      {/* Pet Heroes */}
       <PetHeros />
     </div>
   );
