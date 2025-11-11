@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const PetHeros = () => {
   const [heroes, setHeroes] = useState([]);
@@ -12,12 +13,20 @@ const PetHeros = () => {
     fetch("http://localhost:3000/pet-heroes")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data); // check if data comes correctly
+        console.log(data);
         setHeroes(data);
         setLoading(false);
       })
       .catch((err) => console.error("Error fetching heroes:", err));
   }, []);
+
+  if (loading) {
+    return (
+      <div>
+        <LoadingSpinner />
+      </div>
+    );
+  }
 
   return (
     <section className="bg-orange-50 py-20 px-6 text-center">

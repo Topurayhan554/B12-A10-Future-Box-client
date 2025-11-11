@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import { FaMapMarkerAlt, FaEnvelope, FaTag } from "react-icons/fa";
 import { toast } from "react-toastify";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 const SeeDetails = () => {
   const navigate = useNavigate();
@@ -25,7 +26,6 @@ const SeeDetails = () => {
       .catch(() => setLoading(false));
   }, [user, id]);
 
-  // Submit order
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -68,14 +68,14 @@ const SeeDetails = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-[80vh]">
-        <div className="w-12 h-12 border-4 border-dashed border-[#FF004D] rounded-full animate-spin"></div>
+      <div>
+        <LoadingSpinner />
       </div>
     );
   }
 
   return (
-    <div className="max-w-3xl mx-auto my-10 bg-white rounded-3xl overflow-hidden shadow-2xl">
+    <div className="max-w-2xl mx-auto my-10 bg-white rounded-3xl overflow-hidden shadow-2xl">
       {/* Image Section */}
       <div className="relative group">
         <img
@@ -110,18 +110,20 @@ const SeeDetails = () => {
           </p>
 
           <div className="space-y-3">
-            <p className="flex items-center gap-3 text-gray-700">
-              <FaMapMarkerAlt className="text-[#FF004D]" />
-              <span>
-                <strong>Location:</strong> {item.location}
-              </span>
-            </p>
-            <p className="flex items-center gap-3 text-gray-700">
-              <FaEnvelope className="text-[#FF004D]" />
-              <span>
-                <strong>Email:</strong> {item.email}
-              </span>
-            </p>
+            <div className="flex justify-between">
+              <p className="flex items-center gap-3 text-gray-700">
+                <FaMapMarkerAlt className="text-[#FF004D]" />
+                <span>
+                  <strong>Location:</strong> {item.location}
+                </span>
+              </p>
+              <p className="flex items-center gap-3 text-gray-700">
+                <FaEnvelope className="text-[#FF004D]" />
+                <span>
+                  <strong>Email:</strong> {item.email}
+                </span>
+              </p>
+            </div>
             <p className="flex items-center gap-3 text-gray-700">
               💰{" "}
               <span>
@@ -291,7 +293,7 @@ const SeeDetails = () => {
               </button>
               <button
                 type="submit"
-                className="btn bg-[#FF004D] text-white hover:bg-[#e60044]"
+                className="btn bg-amber-600 text-white hover:bg-[#e60044]"
               >
                 Confirm Order
               </button>

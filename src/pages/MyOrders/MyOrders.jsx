@@ -1,15 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable";
+import { FaDownload } from "react-icons/fa";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 🔹 Fetch user orders
   useEffect(() => {
+    if (!user?.email) return;
+
     fetch(`http://localhost:3000/my-orders?email=${user.email}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
@@ -26,7 +29,6 @@ const MyOrders = () => {
       });
   }, [user]);
 
-  // 🔹 Handle PDF Download
   const handleDownloadPDF = () => {
     const doc = new jsPDF();
     doc.text("My Orders Report", 14, 10);
@@ -51,7 +53,7 @@ const MyOrders = () => {
       item.phone,
     ]);
 
-    doc.autoTable({
+    autoTable(doc, {
       head: [tableColumn],
       body: tableRows,
       startY: 20,
@@ -60,70 +62,86 @@ const MyOrders = () => {
     doc.save("My_Orders_Report.pdf");
   };
 
-  // 🔹 Loading state
   if (loading) {
     return (
-      <div className="text-center py-10 text-gray-600">
-        Please wait... Loading...
+      <div>
+        <LoadingSpinner />
       </div>
     );
   }
 
-  // 🔹 Empty state
   if (items.length === 0) {
     return (
       <div className="text-center py-20 text-gray-500">
-        You don’t have any orders yet.
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png"
+          alt="No Orders"
+          className="w-40 mx-auto mb-4 opacity-70"
+        />
+        <p className="text-xl font-medium">You don’t have any orders yet.</p>
       </div>
     );
   }
 
-  // 🔹 Orders Table
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">My Orders</h1>
+    <div className="max-w-7xl mx-auto p-6">
+      {/* Header Section */}
+      <div className="bg-gradient-to-r from-[#FF004D] to-[#ff6a89] text-white rounded-2xl shadow-lg px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4 mb-10">
+        <h1 className="text-3xl font-bold tracking-wide drop-shadow-lg">
+          🛍️ My Orders
+        </h1>
         <button
           onClick={handleDownloadPDF}
-          className="px-5 py-2 bg-[#FF004D] text-white rounded-lg shadow-md hover:bg-[#e60045] transition"
+          className="flex items-center gap-2 px-6 py-2.5 bg-white text-[#FF004D] rounded-lg font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
         >
-          Download Report
+          <FaDownload className="text-[#FF004D]" /> Download Report
         </button>
       </div>
 
-      <div className="overflow-x-auto bg-white rounded-lg shadow-lg">
-        <table className="min-w-full text-sm text-gray-600">
-          <thead className="bg-[#FF004D] text-white">
+      {/* Table Card */}
+      <div className="bg-white bg-opacity-90 backdrop-blur-md border border-gray-100 shadow-xl rounded-2xl overflow-hidden transition-all">
+        <table className="min-w-full text-sm text-gray-700">
+          <thead className="bg-gradient-to-r from-[#FF004D] to-[#ff6a89] text-white text-left">
             <tr>
-              <th className="px-4 py-3 text-left">Product Name</th>
-              <th className="px-4 py-3 text-left">Buyer Name</th>
-              <th className="px-4 py-3 text-left">Price</th>
-              <th className="px-4 py-3 text-left">Quantity</th>
-              <th className="px-4 py-3 text-left">Address</th>
-              <th className="px-4 py-3 text-left">Date</th>
-              <th className="px-4 py-3 text-left">Phone</th>
+              <th className="px-5 py-3">Product</th>
+              <th className="px-5 py-3">Buyer</th>
+              <th className="px-5 py-3">Price</th>
+              <th className="px-5 py-3">Qty</th>
+              <th className="px-5 py-3">Address</th>
+              <th className="px-5 py-3">Date</th>
+              <th className="px-5 py-3">Phone</th>
             </tr>
           </thead>
           <tbody>
-            {items.map((item) => (
+            {items.map((item, idx) => (
               <tr
                 key={item._id}
-                className="border-b hover:bg-gray-50 transition"
+                className={`transition hover:bg-pink-50 ${
+                  idx % 2 === 0 ? "bg-white" : "bg-gray-50"
+                }`}
               >
-                <td className="px-4 py-3">{item.productName}</td>
-                <td className="px-4 py-3">{item.buyerName}</td>
-                <td className="px-4 py-3">${item.price}</td>
-                <td className="px-4 py-3">{item.quantity}</td>
-                <td className="px-4 py-3">{item.address}</td>
-                <td className="px-4 py-3">
+                <td className="px-5 py-3 font-medium text-gray-900">
+                  {item.productName}
+                </td>
+                <td className="px-5 py-3">{item.buyerName}</td>
+                <td className="px-5 py-3 font-semibold text-[#FF004D]">
+                  ${item.price}
+                </td>
+                <td className="px-5 py-3 text-center">{item.quantity}</td>
+                <td className="px-5 py-3">{item.address}</td>
+                <td className="px-5 py-3">
                   {new Date(item.date).toLocaleDateString()}
                 </td>
-                <td className="px-4 py-3">{item.phone}</td>
+                <td className="px-5 py-3">{item.phone}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+
+      <p className="text-sm text-gray-400 text-center mt-6">
+        Showing <span className="font-semibold">{items.length}</span> orders
+      </p>
     </div>
   );
 };

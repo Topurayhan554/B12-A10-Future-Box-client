@@ -9,6 +9,7 @@ import PetHeros from "./PetHeros";
 
 const HomePage = () => {
   const data = useLoaderData();
+  console.log("home data ", data);
 
   return (
     <div className="font-sans text-gray-800 bg-orange-50">
@@ -68,21 +69,28 @@ const HomePage = () => {
           {[
             {
               title: "Pet Accessories",
+
+              category: "Pets",
               desc: "Stylish collars, leashes & harnesses.",
               img: "https://i.pinimg.com/1200x/43/5d/d9/435dd991c85562e0b485c10ea733b706.jpg",
             },
             {
               title: "Premium Pet Food",
+              category: "Food",
               desc: "Nutritious food for healthy pets.",
               img: "https://i.pinimg.com/1200x/ad/7d/ad/ad7dadbc1fb752ebbe88ef17cd7c738b.jpg",
             },
             {
               title: "Grooming Essentials",
+              category: "Accessories",
+
               desc: "Shampoos, brushes, and spa kits.",
               img: "https://i.pinimg.com/736x/6a/89/48/6a8948b559735c80860cdf2169efc874.jpg",
             },
             {
               title: "Health & Wellness",
+
+              category: "Care Products",
               desc: "Supplements and care products.",
               img: "https://i.pinimg.com/736x/99/4d/18/994d18ef7c5ca94a5d41d454e98ba687.jpg",
             },
@@ -101,9 +109,12 @@ const HomePage = () => {
                 {item.title}
               </h3>
               <p className="text-gray-600 mb-4">{item.desc}</p>
-              <button className="text-sm text-orange-600 hover:underline">
+              <Link
+                to={`/categories/${item.category}`}
+                className="text-sm text-orange-600 hover:underline"
+              >
                 Discover More →
-              </button>
+              </Link>
             </div>
           ))}
         </div>

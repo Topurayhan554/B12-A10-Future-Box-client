@@ -13,7 +13,6 @@ import dog3 from "../../assets/90bafbb4368eb094cf2d33ead399d83b.jpg";
 import { Link } from "react-router";
 
 const HeroSection = () => {
-  // Slide data (image + tagline)
   const slides = [
     {
       image: dog1,
@@ -31,7 +30,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative w-full h-[90vh] overflow-hidden">
-      {/* Swiper Background */}
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}
         effect="fade"
@@ -50,7 +48,6 @@ const HeroSection = () => {
             >
               <div className="absolute inset-0 bg-black/40"></div>
 
-              {/* Animated Text */}
               <div className="absolute inset-0 flex items-center justify-center text-center text-white px-6">
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}

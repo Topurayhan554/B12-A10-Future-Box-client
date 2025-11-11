@@ -145,9 +145,9 @@ const AddListing = () => {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-[#FF004D] hover:bg-amber-600 text-white font-semibold px-6 py-2 rounded-lg transition duration-300"
+            className="bg-amber-600 hover:scale-105 hover:bg-amber-500 text-white font-semibold px-6 py-2 rounded-lg transition duration-300"
           >
-            Add Listing
+            Add to Listing
           </button>
         </div>
       </form>

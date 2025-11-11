@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import PetAndSuppliesCard from "../../PetAndSuppliesCard/PetAndSuppliesCard";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
@@ -22,7 +23,11 @@ const MyList = () => {
   }, [user]);
 
   if (loading) {
-    return <div>Please wait ... Loading...</div>;
+    return (
+      <div>
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   return (
