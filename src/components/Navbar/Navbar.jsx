@@ -2,13 +2,25 @@ import { Link, NavLink } from "react-router";
 import { FaPaw } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import MyLink from "./MyLink";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, logOutFunc } = useContext(AuthContext);
+
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
 
   const handleLogout = () => {
     logOutFunc()
@@ -77,6 +89,14 @@ const Navbar = () => {
 
         {/* Right - User / Auth buttons */}
         <div className="flex-1 flex justify-end items-center">
+          {/* toggle */}
+          <input
+            onChange={(e) => handleTheme(e.target.checked)}
+            type="checkbox"
+            checked={theme === "dark"}
+            className="toggle mx-5 border-indigo-600 bg-black checked:border-orange checked:bg-white checked:text-black"
+          />
+
           {user ? (
             <div className="relative">
               {/* User Avatar */}
