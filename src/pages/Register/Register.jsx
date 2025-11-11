@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
   const {
     setUser,
     createUserFunc,
@@ -100,6 +102,10 @@ const Register = () => {
       });
   };
 
+  const handleShowButton = () => {
+    setShow(!show);
+  };
+
   return (
     <div>
       <div className="card bg-base-100 mx-auto mt-5 border border-gray-200 w-full max-w-sm shrink-0 shadow-2xl">
@@ -135,13 +141,22 @@ const Register = () => {
               />
 
               {/* password */}
-              <label className="label">Password</label>
-              <input
-                type="password"
-                name="password"
-                className="input"
-                placeholder="Password"
-              />
+              <div className="relative">
+                <label className="label">Password</label>
+                <input
+                  type={show ? "text" : "password"}
+                  name="password"
+                  className="input"
+                  placeholder="Password"
+                />
+                <button
+                  onClick={handleShowButton}
+                  type="button"
+                  className="btn btn-xs absolute top-6 right-7"
+                >
+                  {show ? <FaEye /> : <FaEyeSlash />}
+                </button>
+              </div>
               <Link to={"/login"} className="text-gray-800">
                 Already have an account?{" "}
                 <span className="text-purple-500">Login here</span>
