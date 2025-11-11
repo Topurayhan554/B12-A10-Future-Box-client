@@ -17,43 +17,45 @@ const HomePage = () => {
       <HeroSection />
 
       {/* About Section */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
           {/* Left Side Images */}
-          <div className="relative w-full md:w-1/2 h-[400px]">
-            {/* Top Image */}
+          <div className="w-full md:w-1/2 grid grid-cols-2 gap-4">
             <img
-              src="https://i.pinimg.com/1200x/4f/a6/dd/4fa6dda44b9be0e1db998dfb9c1d705e.jpg"
+              src="https://i.pinimg.com/736x/a2/91/c9/a291c993693a5c000141735f0371a808.jpg"
               alt="Happy owner and dog"
-              className="absolute top-0 left-0 w-50 h-50 rounded-2xl shadow-2xl object-cover hover:scale-[1.05] transition"
+              className="w-full h-48 sm:h-56 md:h-60 lg:h-72 rounded-2xl shadow-xl object-cover hover:scale-105 transition-transform duration-300"
             />
-            {/* Bottom Image */}
             <img
-              src="https://i.pinimg.com/1200x/4f/a6/dd/4fa6dda44b9be0e1db998dfb9c1d705e.jpg"
-              alt="Cute cat"
-              className="absolute -bottom-5 left-0 w-50 h-50 rounded-2xl shadow-2xl object-cover hover:scale-[1.05] transition"
-            />
-            {/* Right Image */}
-            <img
-              src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6"
+              src="https://i.pinimg.com/1200x/1c/48/52/1c4852569d20f485be37d6713788a6cd.jpg"
               alt="Pet accessories"
-              className="absolute top-1/2 left-80 w-50 h-50 rounded-2xl shadow-2xl object-cover transform -translate-x-1/2 -translate-y-1/2 hover:scale-[1.05] transition"
+              className="w-full h-48 sm:h-56 md:h-60 lg:h-72 rounded-2xl shadow-xl object-cover hover:scale-105 transition-transform duration-300"
+            />
+            <img
+              src="https://i.pinimg.com/1200x/1e/ee/c4/1eeec4de6f91ec7f6c8532cf41bb47f0.jpg"
+              alt="Pet accessories"
+              className="w-full h-48 sm:h-56 md:h-60 lg:h-72 rounded-2xl shadow-xl object-cover hover:scale-105 transition-transform duration-300"
+            />
+            <img
+              src="https://i.pinimg.com/736x/01/b5/c6/01b5c670a4c19433d128242d1f09d38f.jpg"
+              alt="Cute cat"
+              className="w-full h-48 sm:h-56 md:h-60 lg:h-72 rounded-2xl shadow-xl object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
 
           {/* Right Side Text */}
-          <div className="md:w-1/2">
-            <h2 className="text-3xl font-bold mb-5 text-orange-600">
+          <div className="w-full md:w-1/2 text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-bold mb-5 text-orange-600">
               About PawMart
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-5">
+            <p className="text-gray-700 leading-relaxed mb-6 text-base md:text-lg">
               At <span className="font-semibold">PawMart</span>, we’re
               passionate about redefining pet care. We design premium products
               that ensure comfort, safety, and style for every pet. From organic
               food to trendy accessories — every item is crafted with love and
               care.
             </p>
-            <button className="bg-orange-600 text-white px-5 py-2 rounded-lg hover:bg-orange-700 transition">
+            <button className="bg-orange-600 text-white px-6 py-2.5 rounded-lg hover:bg-orange-700 transition duration-300">
               Read More
             </button>
           </div>

@@ -10,6 +10,7 @@ import MyOrders from "../pages/MyOrders/MyOrders";
 import PrivateRoute from "./PrivateRouter";
 import SeeDetails from "../pages/SeeDetails/SeeDetails";
 import CategoriesSection from "../pages/CategoriesSection/CategoriesSection";
+import EditList from "../pages/EditList/EditList";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyList />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/edit-listing/:id",
+        element: (
+          <PrivateRoute>
+            <EditList />
           </PrivateRoute>
         ),
       },

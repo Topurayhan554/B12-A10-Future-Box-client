@@ -1,8 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { toast } from "react-toastify";
 const AddListing = () => {
   const { user } = useContext(AuthContext);
+
+  const [price, setPrice] = useState("");
+
+  const handleCategoryChange = (e) => {
+    const selected = e.target.value;
+    if (selected === "Pets") {
+      setPrice(0);
+    } else {
+      setPrice("");
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,8 +49,8 @@ const AddListing = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto my-10 p-6 bg-white rounded-2xl shadow-lg">
-      <h2 className="text-3xl font-semibold text-center mb-6 text-[#FF004D]">
+    <div className="max-w-3xl mx-auto my-5 p-6 bg-white rounded-2xl shadow-lg">
+      <h2 className="text-4xl font-extrabold text-center text-orange-600 mb-6">
         🐾 Add New Listing
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -61,6 +72,7 @@ const AddListing = () => {
           <select
             defaultValue={""}
             name="category"
+            onChange={handleCategoryChange}
             className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-[#FF004D] outline-none"
             required
           >
@@ -78,7 +90,10 @@ const AddListing = () => {
           <input
             type="number"
             name="price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
             placeholder="Enter price"
+            disabled={price === 0}
             className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-[#FF004D] outline-none"
           />
         </div>
