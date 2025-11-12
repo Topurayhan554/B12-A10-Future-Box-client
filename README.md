@@ -2,9 +2,13 @@
 
 Welcome to **PawMart Pet Shop**, a modern and user-friendly platform to buy, sell, and adopt pets and pet products.
 
-**Live Site:** : (https://example.com)
+**Live Site:** :
+frontend: (https://pawmart-petshop.netlify.app/)
+backend: (https://b12-a10-future-box-server.vercel.app/)
 
----
+**repository** :
+client: https://github.com/Topurayhan554/B12-A10-Future-Box-client.git
+server: https://github.com/Topurayhan554/B12-A10-Future-Box-Server.git
 
 ## Features
 
@@ -24,12 +28,3 @@ Welcome to **PawMart Pet Shop**, a modern and user-friendly platform to buy, sel
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
 - **Authentication:** Firebase Auth
-- **Deployment:** (Add your hosting platform here, e.g., Vercel or Netlify)
-
----
-
-## Installation
-
-1. Clone the repo:
-
-git clone https://github.com/yourusername/pawmart-petshop.git
