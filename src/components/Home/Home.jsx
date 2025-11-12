@@ -9,7 +9,7 @@ import PetHeros from "./PetHeros";
 
 const HomePage = () => {
   const data = useLoaderData();
-  console.log("home data ", data);
+ 
 
   return (
     <div className="font-sans text-gray-800 bg-orange-50">

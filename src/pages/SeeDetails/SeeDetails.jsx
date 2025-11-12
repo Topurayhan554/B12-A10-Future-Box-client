@@ -44,7 +44,7 @@ const SeeDetails = () => {
       orderDate: new Date().toISOString(),
     };
 
-    console.log({ orderInfo });
+    // console.log({ orderInfo });
 
     fetch("http://localhost:3000/orders", {
       method: "POST",

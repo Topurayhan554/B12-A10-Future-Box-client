@@ -14,7 +14,6 @@ const EditList = () => {
       .then((data) => {
         setItems(data.result);
         setLoading(false);
-        console.log("edit data", data);
       });
   }, [id]);
   const handleSubmit = (e) => {

@@ -12,6 +12,7 @@ import SeeDetails from "../pages/SeeDetails/SeeDetails";
 import CategoriesSection from "../pages/CategoriesSection/CategoriesSection";
 import EditList from "../pages/EditList/EditList";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 
 const router = createBrowserRouter([
   {
@@ -22,11 +23,13 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
         loader: () => fetch(`http://localhost:3000/recent-listing`),
+        hydrateFallbackElement: <LoadingSpinner />,
       },
       {
         path: "/pet-supplies",
         element: <PetAndSupplies />,
         loader: () => fetch(`http://localhost:3000/listing`),
+        hydrateFallbackElement: <LoadingSpinner />,
       },
 
       //   login & register

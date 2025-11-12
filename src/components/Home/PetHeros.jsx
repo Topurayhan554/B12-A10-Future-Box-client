@@ -13,7 +13,7 @@ const PetHeros = () => {
     fetch("http://localhost:3000/pet-heroes")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setHeroes(data);
         setLoading(false);
       })

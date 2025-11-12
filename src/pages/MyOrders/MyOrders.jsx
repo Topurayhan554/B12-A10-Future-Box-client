@@ -9,7 +9,7 @@ const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(items);
+  // console.log(items);
 
   useEffect(() => {
     if (!user?.email) return;

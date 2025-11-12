@@ -6,7 +6,7 @@ const AddListing = () => {
   const { user } = useContext(AuthContext);
 
   const [price, setPrice] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const handleCategoryChange = (e) => {
     const selected = e.target.value;
@@ -19,6 +19,7 @@ const AddListing = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const formData = {
       name: e.target.name?.value,
@@ -47,6 +48,7 @@ const AddListing = () => {
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
   };
 
