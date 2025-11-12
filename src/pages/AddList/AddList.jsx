@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { toast } from "react-toastify";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 const AddListing = () => {
   const { user } = useContext(AuthContext);
 
   const [price, setPrice] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const handleCategoryChange = (e) => {
     const selected = e.target.value;
@@ -40,13 +42,17 @@ const AddListing = () => {
       .then((res) => res.json())
       .then((data) => {
         toast.success("Successfully added!");
-        console.log(data);
+        setLoading(false);
         e.target.reset();
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="max-w-3xl mx-auto my-5 p-6 bg-white rounded-2xl shadow-lg">

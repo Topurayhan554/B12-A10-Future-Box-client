@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import { toast } from "react-toastify";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 const EditList = () => {
   const { id } = useParams();
@@ -46,6 +47,10 @@ const EditList = () => {
         console.log(err);
       });
   };
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="card bg-base-100 w-full max-w-md mx-auto shadow-2xl rounded-2xl">

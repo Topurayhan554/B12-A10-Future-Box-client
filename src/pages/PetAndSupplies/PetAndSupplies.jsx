@@ -22,6 +22,10 @@ const PetAndSupplies = () => {
       .catch(() => setLoading(false));
   };
 
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <div className="py-20 px-6 bg-white">
       {/* Title + Search Input */}

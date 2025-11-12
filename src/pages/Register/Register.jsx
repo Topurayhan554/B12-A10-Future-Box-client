@@ -24,7 +24,7 @@ const Register = () => {
     const photoURL = e.target.photo?.value;
     const password = e.target.password?.value;
 
-    // ✅ Password Validation
+    // Password Validation
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordRegex.test(password)) {
       toast.error(

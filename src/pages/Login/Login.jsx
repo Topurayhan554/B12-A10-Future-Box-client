@@ -15,7 +15,7 @@ const Login = () => {
     const email = e.target.email?.value;
     const password = e.target.password?.value;
 
-    // ✅ Password Validation
+    //  Password Validation
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordRegex.test(password)) {
       toast.error(

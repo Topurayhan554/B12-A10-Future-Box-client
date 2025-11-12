@@ -154,7 +154,6 @@ const HomePage = () => {
         }
       </div>
 
-      {/* Why Adopt Section */}
       <section className="py-20 px-6 bg-orange-100 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-orange-600 mb-10">
           🐾 Why Adopt from PawMart?

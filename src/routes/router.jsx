@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRouter";
 import SeeDetails from "../pages/SeeDetails/SeeDetails";
 import CategoriesSection from "../pages/CategoriesSection/CategoriesSection";
 import EditList from "../pages/EditList/EditList";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ]);
 

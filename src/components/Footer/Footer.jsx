@@ -6,7 +6,7 @@ import {
   FaFacebookF,
   FaInstagram,
 } from "react-icons/fa";
-import { SiX } from "react-icons/si"; // X icon
+import { SiX } from "react-icons/si";
 
 const Footer = () => {
   return (
