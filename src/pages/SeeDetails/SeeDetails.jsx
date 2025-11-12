@@ -163,7 +163,6 @@ const SeeDetails = () => {
                 <input
                   type="text"
                   value={user?.displayName || ""}
-                  readOnly
                   className="input input-bordered w-full"
                 />
               </div>

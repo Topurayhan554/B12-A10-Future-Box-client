@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-import { FaDownload } from "react-icons/fa";
+import { FaDownload, FaTrash } from "react-icons/fa";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  console.log(items);
 
   useEffect(() => {
     if (!user?.email) return;
@@ -62,6 +63,22 @@ const MyOrders = () => {
     doc.save("My_Orders_Report.pdf");
   };
 
+  const handleRemove = (id) => {
+    fetch(`http://localhost:3000/delete-orders/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setItems(items.filter((item) => item._id !== id));
+        }
+      })
+      .catch((err) => console.error("Error deleting order:", err));
+  };
+
   if (loading) {
     return (
       <div>
@@ -110,6 +127,7 @@ const MyOrders = () => {
               <th className="px-5 py-3">Address</th>
               <th className="px-5 py-3">Date</th>
               <th className="px-5 py-3">Phone</th>
+              <th className="px-5 py-3 text-center">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -133,6 +151,17 @@ const MyOrders = () => {
                   {new Date(item.date).toLocaleDateString()}
                 </td>
                 <td className="px-5 py-3">{item.phone}</td>
+
+                {/* Remove Button */}
+                <td className="px-5 py-3 text-center">
+                  <button
+                    onClick={() => handleRemove(item._id)}
+                    className="p-2 rounded-full text-white bg-red-500 hover:bg-red-600 transition-all"
+                    title="Remove Order"
+                  >
+                    <FaTrash />
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
