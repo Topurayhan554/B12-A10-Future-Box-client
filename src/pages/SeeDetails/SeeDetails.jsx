@@ -76,6 +76,7 @@ const SeeDetails = () => {
 
   return (
     <div className="max-w-2xl mx-auto my-10 bg-white rounded-3xl overflow-hidden shadow-2xl">
+      <title>Details</title>
       {/* Image Section */}
       <div className="relative group">
         <img

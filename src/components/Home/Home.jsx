@@ -9,10 +9,10 @@ import PetHeros from "./PetHeros";
 
 const HomePage = () => {
   const data = useLoaderData();
- 
 
   return (
     <div className="font-sans text-gray-800 bg-orange-50">
+      <title>Home</title>
       {/* Hero Section */}
       <HeroSection />
 

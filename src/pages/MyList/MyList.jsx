@@ -72,6 +72,7 @@ const MyList = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <title>My list</title>
       {/* Header */}
       <div className="text-center mb-10">
         <h2 className="text-4xl font-extrabold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-2">

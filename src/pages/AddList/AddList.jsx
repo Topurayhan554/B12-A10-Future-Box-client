@@ -58,6 +58,7 @@ const AddListing = () => {
 
   return (
     <div className="max-w-3xl mx-auto my-5 p-6 bg-white rounded-2xl shadow-lg">
+      <title>Add List</title>
       <h2 className="text-4xl font-extrabold text-center text-orange-600 mb-6">
         🐾 Add New Listing
       </h2>

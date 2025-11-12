@@ -53,6 +53,7 @@ const EditList = () => {
 
   return (
     <div className="card bg-base-100 w-full max-w-md mx-auto shadow-2xl rounded-2xl">
+      <title>Edit List</title>
       <div className="card-body p-6 relative">
         <h2 className="text-2xl font-bold text-center mb-6">Update items</h2>
         <form onSubmit={handleSubmit} className="space-y-4">

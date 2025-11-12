@@ -105,6 +105,7 @@ const MyOrders = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
+      <title>My orders</title>
       {/* Header Section */}
       <div className="bg-gradient-to-r from-[#FF004D] to-[#ff6a89] text-white rounded-2xl shadow-lg px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4 mb-10">
         <h1 className="text-3xl font-bold tracking-wide drop-shadow-lg">

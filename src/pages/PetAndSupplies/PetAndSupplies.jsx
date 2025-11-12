@@ -30,6 +30,8 @@ const PetAndSupplies = () => {
 
   return (
     <div className="py-20 px-6 bg-white">
+      <title>Pet and supplies</title>
+
       {/* Title + Search Input */}
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between mb-10 gap-4">
         <h2 className="text-3xl font-bold text-orange-600">

@@ -56,6 +56,7 @@ const Login = () => {
 
   return (
     <div>
+      <title>Login</title>
       <div className="card bg-base-100 mx-auto mt-5 border border-gray-200 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
           <h1 className="text-3xl font-bold">Login now!</h1>
