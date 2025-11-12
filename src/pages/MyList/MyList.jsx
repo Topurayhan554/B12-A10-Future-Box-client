@@ -13,11 +13,14 @@ const MyList = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:3000/my-listing?email=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    fetch(
+      `https://b12-a10-future-box-server.vercel.app/my-listing?email=${user.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
@@ -37,7 +40,7 @@ const MyList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/listing/${id}`, {
+        fetch(`https://b12-a10-future-box-server.vercel.app/listing/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

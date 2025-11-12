@@ -13,7 +13,7 @@ const SeeDetails = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/see-details/${id}`, {
+    fetch(`https://b12-a10-future-box-server.vercel.app/see-details/${id}`, {
       headers: {
         authorization: `Bearer ${user?.accessToken}`,
       },
@@ -46,7 +46,7 @@ const SeeDetails = () => {
 
     // console.log({ orderInfo });
 
-    fetch("http://localhost:3000/orders", {
+    fetch("https://b12-a10-future-box-server.vercel.app/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

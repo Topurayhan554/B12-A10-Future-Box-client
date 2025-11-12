@@ -13,7 +13,9 @@ const PetAndSupplies = () => {
     const search_text = e.target.search?.value;
     setLoading(true);
 
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    fetch(
+      `https://b12-a10-future-box-server.vercel.app/search?search=${search_text}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setItems(data);

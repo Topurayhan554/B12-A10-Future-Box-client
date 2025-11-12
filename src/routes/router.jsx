@@ -22,13 +22,15 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: () => fetch(`http://localhost:3000/recent-listing`),
+        loader: () =>
+          fetch(`https://b12-a10-future-box-server.vercel.app/recent-listing`),
         hydrateFallbackElement: <LoadingSpinner />,
       },
       {
         path: "/pet-supplies",
         element: <PetAndSupplies />,
-        loader: () => fetch(`http://localhost:3000/listing`),
+        loader: () =>
+          fetch(`https://b12-a10-future-box-server.vercel.app/listing`),
         hydrateFallbackElement: <LoadingSpinner />,
       },
 

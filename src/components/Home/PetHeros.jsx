@@ -10,7 +10,7 @@ const PetHeros = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/pet-heroes")
+    fetch("https://b12-a10-future-box-server.vercel.app/pet-heroes")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

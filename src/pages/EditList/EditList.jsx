@@ -9,7 +9,7 @@ const EditList = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/listing/${id}`)
+    fetch(`https://b12-a10-future-box-server.vercel.app/listing/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setItems(data.result);
@@ -30,7 +30,7 @@ const EditList = () => {
       email: items.email,
     };
 
-    fetch(`http://localhost:3000/listing/${items._id}`, {
+    fetch(`https://b12-a10-future-box-server.vercel.app/listing/${items._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

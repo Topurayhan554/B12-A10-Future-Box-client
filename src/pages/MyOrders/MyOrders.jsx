@@ -14,11 +14,14 @@ const MyOrders = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:3000/my-orders?email=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    fetch(
+      `https://b12-a10-future-box-server.vercel.app/my-orders?email=${user.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
@@ -64,7 +67,7 @@ const MyOrders = () => {
   };
 
   const handleRemove = (id) => {
-    fetch(`http://localhost:3000/delete-orders/${id}`, {
+    fetch(`https://b12-a10-future-box-server.vercel.app/delete-orders/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${user.accessToken}`,

@@ -33,7 +33,7 @@ const AddListing = () => {
       date: e.target.date?.value,
     };
 
-    fetch("http://localhost:3000/listing", {
+    fetch("https://b12-a10-future-box-server.vercel.app/listing", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

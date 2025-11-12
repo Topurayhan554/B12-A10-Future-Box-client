@@ -1,16 +1,35 @@
-# React + Vite
+# 🐾 PawMart Pet Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **PawMart Pet Shop**, a modern and user-friendly platform to buy, sell, and adopt pets and pet products.
 
-Currently, two official plugins are available:
+**Live Site:** : (https://example.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Pet Adoption & Listing**: Browse and list pets available for adoption with details like name, category, price, location, and images.
+- **Pet Food & Accessories**: Explore a variety of pet food, toys, and accessories for your furry friends.
+- **Pet Care Products**: Find essential care products to keep your pets healthy and happy.
+- **Easy-to-Use Forms**: Add listings easily with a clean and interactive form including image uploads, descriptions, and date selection.
+- **Secure User Authentication**: Users can log in and manage their listings securely using Firebase authentication.
+- **Responsive Design**: Fully responsive UI built with React, Tailwind CSS, and modern design principles.
+- **Notifications**: Get real-time success messages and alerts using React Toastify and SweetAlert2.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- **Frontend:** React, Tailwind CSS, React Router
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Authentication:** Firebase Auth
+- **Deployment:** (Add your hosting platform here, e.g., Vercel or Netlify)
+
+---
+
+## Installation
+
+1. Clone the repo:
+
+git clone https://github.com/yourusername/pawmart-petshop.git
